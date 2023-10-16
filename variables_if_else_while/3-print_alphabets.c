@@ -9,15 +9,13 @@
  */
 int main(void)
 {
-	char ch;
+	char ch, chupper;
 
 	for (ch = 97 ; ch <= 122 ; ch++)
 	putchar(ch);
 
-	char ch_upper;
-
-	for (ch_upper = 65 ; ch_upper <= 90 ; ch_upper++)
-	putchar(ch_upper);
+	for (chupper = 65 ; chupper <= 90 ; chupper++)
+	putchar(chupper);
 	putchar('\n');
 
 	return (0);
