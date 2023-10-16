@@ -12,13 +12,12 @@ int main(void)
 	char ch;
 
 	for (ch = 97 ; ch <= 122 ; ch++)
-		putchar(ch);
-	putchar('\n');
+	putchar(ch);
 
 	char ch_upper;
 
 	for (ch_upper = 65 ; ch_upper <= 90 ; ch_upper++)
-		putchar(ch_upper);
+	putchar(ch_upper);
 	putchar('\n');
 
 	return (0);
