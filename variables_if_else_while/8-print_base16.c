@@ -11,7 +11,7 @@ int main(void)
 {
 char ch;
 
-for (ch = '0'; ch <= '9'; ch++)
+	for (ch = '0'; ch <= '9'; ch++)
 {
 		putchar(ch);
 }
@@ -21,6 +21,6 @@ for (ch = '0'; ch <= '9'; ch++)
 }
 	putchar('\n');
 
-return(0);
+return (0);
 
 }
