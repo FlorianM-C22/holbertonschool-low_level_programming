@@ -2,11 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 
-/*
+/**
 * main - This program
 * will assign a random number
 * to the variable n
-* return: 0
+* Return: 0
 */
 int main(void)
 {
