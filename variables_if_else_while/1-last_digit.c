@@ -22,7 +22,7 @@ int main(void)
 
 	else if (modulo < 6 && !0)
 	{
-		printf("Last digit of %d is %d and is less than 6 and not 0", n, modulo);
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, modulo);
 	}
 
 	else if (modulo == 0)
