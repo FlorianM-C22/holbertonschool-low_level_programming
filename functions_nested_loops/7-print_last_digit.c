@@ -16,4 +16,6 @@ int lastDigit = n % 10;
 char lastDigitChar = '0' + lastDigit;
 write(1, &lastDigitChar, 1);
 
+return (0);
+
 }
