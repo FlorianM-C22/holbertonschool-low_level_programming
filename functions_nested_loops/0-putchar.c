@@ -8,7 +8,7 @@
  * On error, -1 is returned, and errno is set appropriately.
  */
 
-int main (void)
+int main(void)
 {
 	_putchar('_');
 	_putchar('p');
