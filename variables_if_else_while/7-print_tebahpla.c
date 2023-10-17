@@ -4,7 +4,7 @@
 
 /**
  * main- This program will print the alphabet
- * with the putchar function in lowercase then in UPPERCASE
+ * with the putchar function in reverse order
  * Return: 0 *
  */
 int main(void)
