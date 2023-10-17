@@ -7,7 +7,6 @@
  */
 int main(void)
 {
-	int islower(int c);
+	int isalpha(int c);
 	return (0);
 }
-
