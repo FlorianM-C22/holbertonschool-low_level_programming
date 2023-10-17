@@ -5,8 +5,7 @@
  * print_alphabet - prints alphabet
  * Return 0: Success
  */
-
-void print_alphabet(void) /*Alphabet*/
+void print_alphabet(void)
 {
 
 	char c;
