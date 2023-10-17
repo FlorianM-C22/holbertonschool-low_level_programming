@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- * main - includes all the functions needed for the program to run
- * print_alphabet - prints alphabet
- * Return 0: Success
+ * print_alphabet - prints the alphabet
+ * with a newline
  */
 void print_alphabet(void)
 {
