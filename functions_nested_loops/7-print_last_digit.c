@@ -7,14 +7,13 @@
  */
 int print_last_digit(int n)
 {
-	int absNum = (n < 0) ? -n : n;
-	int lastDigit = absNum % 10;
-	int lastDigitChar = '0' + lastDigit;
+	if (n < 0)
+	{
+		n = -n;
+	}
 
-	return (lastDigit);
-
-	_putchar(lastDigitChar);
-
-	return (0);
+int lastDigit = n % 10;
+char lastDigitChar = '0' + lastDigit;
+write(1, &lastDigitChar, 1);
 
 }
