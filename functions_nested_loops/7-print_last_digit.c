@@ -6,14 +6,19 @@
  * Return: 0 success
  */
 int print_last_digit(int n)
+
 {
+	int lastDigit;
+
 	if (n < 0)
 	{
 		n = -n;
 	}
 
-int lastDigit = n % 10;
-char lastDigitChar = '0' + lastDigit;
+	lastDigit = n % 10;
+	char lastDigitChar = '0' + lastDigit;
+
+	write(1, &lastDigitChar, 1);
 
 
 return (0);
