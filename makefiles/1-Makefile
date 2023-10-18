@@ -2,4 +2,5 @@ SRC = main.c school.c
 CC = gcc
 
 all: school
+	-o school
 
