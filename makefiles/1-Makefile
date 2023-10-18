@@ -3,4 +3,4 @@ CC = gcc
 TARGET = school
 
 all: $(SRC) m.h
-	$(CC) $(SRC) -o school
+	$(CC) $(SRC) -o $(TARGET)
