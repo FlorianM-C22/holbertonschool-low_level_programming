@@ -1,6 +1,5 @@
 SRC = main.c school.c
 CC = gcc
+TARGET = school
 
-all: school
-	-o school
-
+all: $(school)
