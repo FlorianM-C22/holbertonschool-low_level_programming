@@ -3,7 +3,6 @@
 /**
  *main - prints numbers 1 to 100 but multiples of 3 prints fizz
  *and multiples of 5 prints buzz
- *@size: number of lines
  *Return: 0 Success
  */
 int main(void)
