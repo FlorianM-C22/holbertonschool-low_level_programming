@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"stdio.h": "c",
-		"8-main.C": "cpp"
+		"8-main.C": "cpp",
+		"string.h": "c",
+		"unistd.h": "c"
 	}
 }
