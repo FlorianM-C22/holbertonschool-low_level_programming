@@ -2,8 +2,8 @@
 
 /**
  *reset_to_98 - Write a function that takes a pointer to an int as parameter
- *main - description
  *and updates the value it points to to 98.
+ *main - description
  *@n: value tested
  *Return: Always 0.
 */
