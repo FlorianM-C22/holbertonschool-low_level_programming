@@ -13,7 +13,7 @@ void print_rev(char *s)
 {
 	int length = 0;
 
-	while (*s != '\0') /*Calcul de la longueur de la chaîne*/
+	while (*s != '\0') /*Defining the length of the string*/
 		{
 		length++;
 		s++;
@@ -21,12 +21,12 @@ void print_rev(char *s)
 
 	s--; /*Ramener s à la fin de la chaîne*/
 
-	while (length > 0) /*Affichage de la chaîne dans l'ordre inverse*/
+	while (length > 0) /*Reverse display of the string*/
 		{
 		_putchar(*s);
 		s--;
 		length--;
 		}
 
-_putchar('\n'); /*Afficher un saut de ligne*/
+_putchar('\n'); /*New line*/
 }
