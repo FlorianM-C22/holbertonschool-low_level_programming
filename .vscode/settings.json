@@ -3,6 +3,7 @@
 		"stdio.h": "c",
 		"8-main.C": "cpp",
 		"string.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"main.h": "c"
 	}
 }
