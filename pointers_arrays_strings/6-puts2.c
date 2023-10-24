@@ -12,13 +12,15 @@
 */
 void puts2(char *str)
 {
-	int i = 0;
+	int i = 0; /*Declaring an int to get *str's index*/
 
+	/*While str hasn't reach the NULL value, the loop goes on*/
 	while (str[i] != '\0')
 		{
+		/**If i's value is a multiple of 2, prints the char inside the array*/
 		if (i % 2 == 0)
 			_putchar(str[i]);
 		i++;
 		}
-	_putchar ('\n');
+	_putchar ('\n'); /*Return a new line*/
 }
