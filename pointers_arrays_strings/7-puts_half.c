@@ -8,8 +8,6 @@
  *puts_half - function that prints half of a string
  *character, followed by a new line
  *@str : pointer tested
- *@i: index value
- *@n: strlen value
  *Return: Always 0.
 */
 void puts_half(char *str)
