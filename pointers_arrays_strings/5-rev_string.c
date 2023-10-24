@@ -11,24 +11,16 @@
 */
 void rev_string(char *s)
 {
-	int length = 0;
-	char *end = s;
-	char temp;
+	int i, j;
 
-	while (*end != '\0') /*Calculate the length of the string*/
+	j = _strlen(s) - 1; /*Defining j at the end of the string*/
+
+	for (i = 0; i < j; i++) /*Reverse function to operate character swap*/
 		{
-		length++;
-		end++;
-		}
+		char c = s[i];
 
-	end--;
-
-	while (s < end)
-		{
-		temp = *s;
-		*s = *end;
-		*end = temp;
-		s++;
-		end--;
+		s[i] = s[j];
+		s[j] = c;
+		j--;
 		}
 }
