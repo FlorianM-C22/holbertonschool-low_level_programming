@@ -4,6 +4,7 @@
 		"8-main.C": "cpp",
 		"string.h": "c",
 		"unistd.h": "c",
-		"main.h": "c"
+		"main.h": "c",
+		"stdlib.h": "c"
 	}
 }
