@@ -15,6 +15,7 @@
 char *cap_string(char *str) /*Pointer to an array named str */
 {
 	size_t i;
+	char seps[] = " \t\n,;.!?\"(){}";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
