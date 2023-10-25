@@ -13,15 +13,16 @@
  */
 void reverse_array(int *a, int n)
 {
+	/*Defining a start and an end pointer to navigate through the array*/
 	int *start = a;
 	int *end = a + n - 1;
 
 	while (start < end)
 	{
-		int temp = *start;
+		int temp = *start; /*Switches elements pointed by start and end*/
 		*start = *end;
 		*end = temp;
-		start++;
+		start++; /*Moving start and end pointers*/
 		end--;
 	}
 }
