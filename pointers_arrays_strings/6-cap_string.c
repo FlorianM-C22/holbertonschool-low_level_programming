@@ -22,7 +22,6 @@ char *cap_string(char *str) /*Pointer to an array named str */
 		{
 			str[i + 1] = toupper(str[i + 1]);
 		}
-
 	}
 
 	return (str);
