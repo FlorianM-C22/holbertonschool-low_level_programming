@@ -12,7 +12,7 @@
  * @str: string to test
  * Return: 0
  */
-char *string_toupper(char *str) /*Pointer to a char named string_toupper*/
+char *string_toupper(char *str) /*Pointer to an array named str*/
 {
 	size_t i;
 
