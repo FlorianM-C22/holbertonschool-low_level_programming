@@ -18,7 +18,7 @@ char *cap_string(char *str) /*Pointer to an array named str */
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (i == 0 || isspace(str[i - 1]))
+		if (i == 0 || isspace(str[i - 1]) || ispunct(str[i - 1]))
 		{
 			str[i] = toupper(str[i]);
 		}
