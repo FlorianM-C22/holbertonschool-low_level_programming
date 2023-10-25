@@ -16,15 +16,18 @@ char *cap_string(char *str) /*Pointer to an array named str */
 {
 	size_t i;
 
-	while (str[i] != '\0') /*For each character in the input string*/
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (i == 0 || isspace(str[i - 1]))
+		{
+			str[i] = toupper(str[i]);
+		}
 
-		if/*state is INITIAL and character is not a separator*/
-			/*Capitalize the character*/
-			/*STATE = INITIAL*/
-		else if /*state is IN_WORD and character is a word separator*/
-			/*State = INITIAL*/
-		else if /* state is IN_WORD*/
-			/*Convert character to lowercase*/
+		else
+		{
+		str[i] = tolower(str[i]);
+		}
+	}
 
 	return (str);
 }
