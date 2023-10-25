@@ -12,13 +12,13 @@
  * @str: string to test
  * Return: 0
  */
-char *string_toupper(char *str)
+char *string_toupper(char *str) /*Pointer to a char named string_toupper*/
 {
 	size_t i;
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < strlen(str); i++) /*Iteration loop*/
 	{
-		str[i] = toupper(str[i]);
+		str[i] = toupper(str[i]); /*Converts each character to uppercase*/
 	}
 	return (str);
 }
