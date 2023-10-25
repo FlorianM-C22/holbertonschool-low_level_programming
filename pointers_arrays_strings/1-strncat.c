@@ -22,7 +22,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	strcpy(dest, src); /*Copy both strings and return them to a new buffer*/
 
-	dest[n] = '\0'; /*Adds a NULL character after to the chain + n*/
+	dest[n] = '\0'; /*Adds a NULL character to the destination chain + n*/
 
 	return (dest_start);
 }
