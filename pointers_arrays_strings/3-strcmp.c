@@ -6,7 +6,7 @@
 #include <stddef.h>
 
 /**
- * _strcmp - Copy a string up to 'n' characters
+ * _strcmp - compare two strings
  *@s1: string 1
  *@s2: string 2
  *works like strcmp
