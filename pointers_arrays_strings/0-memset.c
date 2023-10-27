@@ -17,13 +17,14 @@ char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
+	/*If s is NULL, return NULL to avoid any crashes*/
 	if (s == NULL)
 	{
 		return (NULL);
 	}
-
+	/*Goes through every bytes and writes a number inside of it*/
 	for (i = 0; i < n; i++)
 		s[i] = b;
 
-	return (s);
+	return (s); /*Return the memory written correctly*/
 }
