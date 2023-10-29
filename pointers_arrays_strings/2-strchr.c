@@ -16,11 +16,13 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-		if (s[i] == c)
+	/*Checking the char string*/
+	for (i = 0; s[i]; i++)
+		if (s[i] == c)/*If finds the character*/
 		{
-			return (&s[i]);
+			return (&s[i]);/*Returns the 1st occurence of the character*/
 		}
 
-	return (NULL);
+	return (NULL);/*Returns NULL if char is not found*/
+
 }
