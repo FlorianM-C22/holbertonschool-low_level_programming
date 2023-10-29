@@ -14,14 +14,16 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j;
+	unsigned int i, j; /*Declaring 2 index values to go through both strings*/
 
+	/*For the whole lenght of string s*/
 	for (i = 0; i < strlen(s); i++)
 	{
+		/*For the whole length of accept*/
 		for (j = 0; j < strlen(accept); j++)
 		{
-		if (s[i] == accept[j])
-			return (&s[i]);
+		if (s[i] == accept[j]) /*If character matching*/
+			return (&s[i]); /*Return the adress of this character*/
 		}
 	}
 
