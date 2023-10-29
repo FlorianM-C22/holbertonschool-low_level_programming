@@ -17,20 +17,21 @@ unsigned int _strspn(char *s, char *accept)
 	unsigned int length = 0; /*Variable to calculate the length*/
 	unsigned int i, j; /*To navigate through 's' and 'accept' strings*/
 
-	for (i = 0; i < strlen(s); i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == '\0')
-			return (length); /* Return the calculated length if '\0' is found */
-	}
-
-	for (i = 0; i < strlen(s); i++)
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-		for (j = 0; j < strlen(accept); j++)
-			{
 			if (s[i] == accept[j])
+			{
 				length++;
-			break;
+				break; /* Exit the inner loop if a match is found */
 			}
 		}
-		return (length);
+		if (accept[j] == '\0')
+		{
+			return (length); /* Return the calculated length if s[i] is not in accept */
+		}
+	}
+
+	return (length); /* Return the calculated length at the end */
 }
