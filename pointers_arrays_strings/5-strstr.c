@@ -16,6 +16,9 @@ char *_strstr(char *haystack, char *needle)
 {
 	size_t i, j; /*Index values to navigate through both strings*/
 
+	if (needle[0] == '\0')
+		return (haystack);
+
 	for (i = 0; i < strlen(haystack); i++)
 	{
 		size_t temp_i = i; /*Will mark the start of the occurrence*/
