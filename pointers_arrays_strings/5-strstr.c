@@ -18,23 +18,24 @@ char *_strstr(char *haystack, char *needle)
 
 	for (i = 0; i < strlen(haystack); i++)
 	{
-		size_t temp_i = i; /*Will mark the start of the iteration*/
+		size_t temp_i = i; /*Will mark the start of the occurrence*/
 
 		for (j = 0; j < strlen(needle) && temp_i < strlen(haystack); j++)
 		{
 			if (haystack[temp_i] == needle[j])
 			{
 				temp_i++;
-			if (j == strlen(needle) - 1)
-			{
-				return (&haystack[i]);
+				if (j == strlen(needle) - 1)
+				{
+					return (&haystack[i]);
+				}
 			}
 			else
 			{
-				break;
-			}
+				break; /*Exiting the loop if no match*/
 			}
 		}
 	}
-	return (NULL);
+
+	return (NULL); /*Substring not found*/
 }
