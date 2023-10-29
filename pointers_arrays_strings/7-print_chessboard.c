@@ -20,11 +20,7 @@ void print_chessboard(char (*a)[8])
 		for (j = 0; j < 8; j++)
 		{
 			_putchar(a[i][j]);
-			if (a[i][j] != ' ')
-			{
-				_putchar(' ');
-			}
 		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
