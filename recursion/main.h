@@ -27,3 +27,4 @@ char *_strstr(char *haystack, char *needle);
 void print_chessboard(char (*a)[8]);
 void _puts_recursion(char *s);
 void _print_rev_recursion(char *s);
+int _strlen_recursion(char *s);
