@@ -20,7 +20,7 @@ int _strlen_recursion(char *s)
 		return (0);
 	}
 
-	length = _strlen_recursion(s + 1);
+	length = _strlen_recursion(s + 1); /*Initializing recursion*/
 
-	return (1 + length);
+	return (1 + length); /*Returns the length of the string*/
 }
