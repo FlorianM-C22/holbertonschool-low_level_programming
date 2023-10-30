@@ -14,13 +14,13 @@
 void _puts_recursion(char *s)
 {
 
-	if (*s == '\0')
+	if (*s == '\0') /*If we reach NULL*/
 	{
-		_putchar('\n');
+		_putchar('\n'); /*New line + return*/
 		return;
 	}
 
-	_putchar(*s);
+	_putchar(*s); /*Puts each char of the string recursively*/
 	_puts_recursion(s + 1);
 
 }
