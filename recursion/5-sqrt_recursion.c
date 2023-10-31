@@ -8,8 +8,27 @@
 #include <math.h>
 
 /**
+ *_sqrt_recursion_helper - helps to find the square root
+ *@guess: current guess for the square root
+ *@n: integer to be tested
+ *Return: n if found or 1
+*/
+int _sqrt_recursion_helper(int n, int guess)
+{
+	if (guess * guess == n)
+	{
+		return (guess);  /*Nous avons trouvé la racine carrée.*/
+	}
+	if (guess * guess > n)
+	{
+		return (-1);  /*n n'est pas un carré parfait, retourne -1.*/
+	}
+	/*Essaye le prochain nombre comme hypothèse.*/
+	return (_sqrt_recursion_helper(n, guess + 1));
+}
+
+/**
  *_sqrt_recursion - returns the natural square root of a number
- *_sqrt_recursion_helper - help to find square root
  *@n: integer to be tested
  * Return: 0
  */
@@ -19,9 +38,9 @@ int _sqrt_recursion(int n)
 	{
 		return (-1);
 	}
-	if (n == 0)
+	if (n == 0 || n == 1)
 	{
-		return (1);
+		return (n);
 	}
-	return (n);
+	return (_sqrt_recursion_helper(n, 1));
 }
