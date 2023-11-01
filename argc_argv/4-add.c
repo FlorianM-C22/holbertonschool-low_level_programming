@@ -13,7 +13,7 @@ int is_positive_number(char *str)
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')
-			return 0;
+			return (0);
 		str++;
 	}
 	return (1);
@@ -27,7 +27,7 @@ int is_positive_number(char *str)
 int main(int argc, char **argv)
 {
 	int sum = 0;
-	int i, num;
+	int i, num; /*Declaring variables*/
 
 	if (argc == 1)
 	{
@@ -37,12 +37,13 @@ int main(int argc, char **argv)
 
 	for (i = 1; i < argc; i++)
 	{
+		/*Checks if arguments are numbers only*/
 		if (!is_positive_number(argv[i]))
 		{
 			printf("Error\n");
 			return (1);
 		}
-
+		/*Converts arguments as integers*/
 		num = atoi(argv[i]);
 		if (num < 0)
 		{
