@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	int n = strtol(argv[1], NULL, 10);
-	int m = strtoll(argv[2], NULL, 10);
+	int m = strtoll(argv[2], NULL, 10); /*Converts arguments as integers*/
 	int result = (n * m);
 
 	if (argc < 3)
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		printf("%d\n", result);
+		printf("%d\n", result); /*Prints the result*/
 	}
 
 	return (0);
