@@ -11,16 +11,21 @@
 */
 char *_strdup(char *str)
 {
-	unsigned int i = 0;
+	unsigned int i;
 	char *buffer;
 
 	if (str == NULL)
 		return (NULL);
 
-	buffer = malloc(sizeof(char) * strlen(str));
+	buffer = malloc(strlen(str) * (sizeof(str)));
 
-	for (i = 0; i < strlen(str); ++i)
+	if (buffer == NULL)
+		return (NULL);
+
+	for (i = 0; i < strlen(str); i++)
 		buffer[i] = str[i];
 
 	return (buffer);
+
+	free(buffer);
 }
