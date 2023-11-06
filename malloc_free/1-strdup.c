@@ -25,7 +25,7 @@ char *_strdup(char *str)
 	for (i = 0; i < strlen(str); i++)
 		buffer[i] = str[i];
 
-	free(buffer);
-
 	return (buffer);
+
+	free(buffer);
 }
