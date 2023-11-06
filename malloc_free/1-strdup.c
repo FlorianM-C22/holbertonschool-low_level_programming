@@ -28,4 +28,5 @@ char *_strdup(char *str)
 	return (buffer);
 
 	free(buffer);
+	free(str);
 }
