@@ -4,43 +4,23 @@
 #include <string.h>
 
 /**
- *alloc_grid - returns a pointer to a 2 dimensional array of integers
- * @width: width of the array
+ *free_grid - frees the grid previously created by alloc_grid
+ * @grid: grid of alloc_grid
  * @height: height of the array
  * Return: Always 0.
  */
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-	int **arr1;
-	int i, j;
+	if (grid == NULL)
+		return; /*Nothing to free*/
 
-	if (width <= 0 || height <= 0)
-		return (NULL);
-
-	arr1 = malloc(sizeof(int *) * height);
-
-	if (arr1 == NULL)
-		return (NULL);
-
-	for (i = 0; i < height; i++)
+	for (int i = 0; i < height; i++)
 	{
-		arr1[i] = malloc(sizeof(int) * width);
-
-		if (arr1[i] == NULL)
+		if (grid[i] != NULL)
 		{
-			for (j = 0; j < i; j++)
-			{
-				free(arr1[j]);
-			}
-			free(arr1);
-			return (NULL);
-		}
-
-		for (j = 0; j < width; j++)
-		{
-			arr1[i][j] = 0;
+			free(grid[i]); /*Free each line*/
 		}
 	}
 
-	return (arr1);
+	free(grid); /*Free the array*/
 }
