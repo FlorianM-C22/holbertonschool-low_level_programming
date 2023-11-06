@@ -24,10 +24,14 @@ char *str_concat(char *s1, char *s2)
 	if (s1 != NULL) /*Copying string's chars*/
 		for (i = 0; i < size1; i++)
 			result[i] = s1[i];
+	else
+		return (NULL);
 
 	if (s2 != NULL)
 		for (j = 0; j < size2; j++)
 			result[i + j] = s2[j];
+	else
+		return (NULL);
 
 	result[totalSize] = '\0'; /*Adding NULL character*/
 
