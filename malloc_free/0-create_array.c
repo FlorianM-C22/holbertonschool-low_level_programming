@@ -27,7 +27,7 @@ char *create_array(unsigned int size, char c)
 	for (i = 0; i < size; i++)
 		buffer[i] = c;
 
-	buffer[size] = '\0';
+	buffer[size] = '\0'; /*Adding NULL character*/
 
-	return (buffer);
+	return (buffer); /*Returning the array*/
 }
