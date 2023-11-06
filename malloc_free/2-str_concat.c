@@ -21,11 +21,13 @@ char *str_concat(char *s1, char *s2)
 	if (result == NULL)
 		return (NULL);
 
-	for (i = 0; i < size1; i++)
-		result[i] = s1[i];
+	if (s1 != NULL)
+		for (i = 0; i < size1; i++)
+			result[i] = s1[i];
 
-	for (j = 0; j < size2; j++)
-		result[i + j] = s2[j];
+	if (s2 != NULL)
+		for (j = 0; j < size2; j++)
+			result[i + j] = s2[j];
 
 	result[totalSize] = '\0';
 
