@@ -19,15 +19,13 @@ char *create_array(unsigned int size, char c)
 	if (size == 0)
 		return (NULL);
 
-	buffer = malloc(size * sizeof(c) + 1); /*Allocating memory*/
+	buffer = malloc(size * sizeof(c)); /*Allocating memory*/
 
 	if (buffer == NULL)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
 		buffer[i] = c;
-
-	buffer[size] = '\0'; /*Adding NULL character*/
 
 	return (buffer); /*Returning the array*/
 }
