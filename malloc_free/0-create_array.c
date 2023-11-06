@@ -29,7 +29,5 @@ char *create_array(unsigned int size, char c)
 
 	buffer[size] = '\0';
 
-	free(buffer);
-
 	return (buffer);
 }
