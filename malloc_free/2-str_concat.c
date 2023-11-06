@@ -11,17 +11,17 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	size_t i, j;
+	size_t i, j; /*Declaring initial values*/
 	size_t size1 = strlen(s1);
 	size_t size2 = strlen(s2);
 	size_t totalSize = size1 + size2;
 
-	char *result = malloc(totalSize + 1);
+	char *result = malloc(totalSize + 1); /*Allocating memory of s1 + s2*/
 
 	if (result == NULL)
 		return (NULL);
 
-	if (s1 != NULL)
+	if (s1 != NULL) /*Copying string's chars*/
 		for (i = 0; i < size1; i++)
 			result[i] = s1[i];
 
@@ -29,7 +29,7 @@ char *str_concat(char *s1, char *s2)
 		for (j = 0; j < size2; j++)
 			result[i + j] = s2[j];
 
-	result[totalSize] = '\0';
+	result[totalSize] = '\0'; /*Adding NULL character*/
 
 	return (result);
 }
