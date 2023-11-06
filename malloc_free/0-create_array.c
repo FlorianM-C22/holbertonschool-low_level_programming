@@ -13,13 +13,13 @@
 char *create_array(unsigned int size, char c)
 {
 
-	unsigned int i;
+	unsigned int i; /*Declaring index and buffer for the array*/
 	char *buffer;
 
 	if (size == 0)
 		return (NULL);
 
-	buffer = malloc(size * sizeof(c) + 1);
+	buffer = malloc(size * sizeof(c) + 1); /*Allocating memory*/
 
 	if (buffer == NULL)
 		return (NULL);
@@ -28,6 +28,8 @@ char *create_array(unsigned int size, char c)
 		buffer[i] = c;
 
 	buffer[size] = '\0';
+
+	free(buffer);
 
 	return (buffer);
 }
