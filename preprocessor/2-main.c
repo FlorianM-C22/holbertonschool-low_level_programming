@@ -1,6 +1,13 @@
-#ifndef __protect__
-#define __protect__
+#include <stdio.h>
+#include "02-main.c"
 
-#define FILENAME "02-main.c"
-
-#endif
+/**
+ *main - prints the name of source code file
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	printf("Name of source file: %s\n", __FILE__);
+	return (0);
+}

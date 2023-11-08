@@ -1,14 +1,12 @@
 #include <stdio.h>
-#include "2-main.c"
 
 /**
- * main - check the code
+ *main - prints the name of source code file
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	printf(FILENAME);
-	printf("\n");
+	printf("02-main.c");
 	return (0);
 }
