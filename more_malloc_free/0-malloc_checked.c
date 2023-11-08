@@ -17,9 +17,8 @@ void *malloc_checked(unsigned int b)
 	if (mallocated == NULL)
 	{
 		/*Failed*/
-		printf("Memory allocation failed\n");
 		exit(98);
 	}
-	else
-		return (mallocated); /*Success*/
+
+	return (mallocated); /*Success*/
 }
