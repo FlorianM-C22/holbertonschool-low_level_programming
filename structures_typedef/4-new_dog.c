@@ -15,6 +15,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/*Allocate memory for the new dog structure*/
 	dog_t *newDog = malloc(sizeof(dog_t));
 
+	if (name == NULL || owner == NULL)
+		return (NULL);
+
 	/*Check if memory allocation was successful*/
 	if (newDog == NULL)
 		return (NULL);  /*Return NULL if allocation fails*/
@@ -36,5 +39,4 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	return (newDog); /*Return the pointer to the newly created dog structure*/
-
 }
