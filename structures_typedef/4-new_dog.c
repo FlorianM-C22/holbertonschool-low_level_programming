@@ -15,28 +15,34 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/*Allocate memory for the new dog structure*/
 	dog_t *newDog = malloc(sizeof(dog_t));
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
-
 	/*Check if memory allocation was successful*/
 	if (newDog == NULL)
 		return (NULL);  /*Return NULL if allocation fails*/
 
-	/*Allocate memory for the name and owner strings, copy the provided values*/
+/* Allocate memory for the name string and copy the provided value */
 	newDog->name = strdup(name);
-	newDog->age = age;
-	newDog->owner = strdup(owner);
 
-	/*Check if string allocations were successful*/
-	if (newDog->name == NULL || newDog->owner == NULL)
+	/* Check if name string allocation was successful */
+	if (newDog->name == NULL)
 	{
-		/*Free previously allocated memory*/
+		/* Free previously allocated memory for the structure */
 		free(newDog);
-		free(newDog->name);
-		free(newDog->owner);
-
-		return (NULL);/*Return NULL if string allocation fails*/
+		return (NULL); /* Return NULL if string allocation fails */
 	}
 
-	return (newDog); /*Return the pointer to the newly created dog structure*/
+	/* Allocate memory for the owner string and copy the provided value */
+	newDog->owner = strdup(owner);
+
+	/* Check if owner string allocation was successful */
+	if (newDog->owner == NULL)
+	{
+		/*Free previously allocated memory for the structure and name */
+		free(newDog->name);
+		free(newDog);
+		return (NULL); /* Return NULL if string allocation fails */
+	}
+
+	newDog->age = age; /* Copy the provided age value */
+
+	return (newDog); /* Return the pointer to the newly created dog structure */
 }
