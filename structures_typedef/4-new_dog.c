@@ -19,7 +19,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (newDog == NULL)
 		return (NULL);  /*Return NULL if allocation fails*/
 
-	/*Allocate memory for the name and owner strings and copy the provided values*/
+	/*Allocate memory for the name and owner strings, copy the provided values*/
 	newDog->name = strdup(name);
 	newDog->age = age;
 	newDog->owner = strdup(owner);
