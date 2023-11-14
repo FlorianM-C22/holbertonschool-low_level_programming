@@ -6,11 +6,11 @@
 /**
  * print_name - prints a name
  * @name: name of the person
- * @char: char string
  * @f: function pointer
  * Return: Nothing.
  */
 void print_name(char *name, void (*f)(char *))
 {
-
+	if (name != NULL && f != NULL)
+		f(name);
 }
