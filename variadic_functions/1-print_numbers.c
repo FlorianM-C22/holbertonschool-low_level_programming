@@ -26,10 +26,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	/*Print remaining numbers with a separator*/
 	for (i = 1; i < n; i++)
 	{
-		if (separator != NULL)
+		if (separator != NULL)/*Checks if separator is NULL*/
 			printf("%s", separator);
 
-		printf("%d", va_arg(ap, int));
+		printf("%d", va_arg(ap, int));/*Print the integers*/
 	}
 
 	/*Clean arguments list*/
