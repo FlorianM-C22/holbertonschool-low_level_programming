@@ -24,7 +24,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	printf("%d", va_arg(ap, int));
 
 	/*Print remaining numbers with a separator*/
-	for (i = 1; i < n; i++)
+	for (i = 1; i <= n; i++)
 	{
 		if (i != n && separator != NULL)/*Checks if separator is NULL*/
 		{
