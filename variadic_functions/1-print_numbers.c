@@ -27,13 +27,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	for (i = 1; i < n; i++)
 	{
 		if (separator != NULL)/*Checks if separator is NULL*/
+		{
 			printf("%s", separator);
-
+		}
 		printf("%d", va_arg(ap, int));/*Print the integers*/
 	}
 
-	/*Clean arguments list*/
-	va_end(ap);
+	va_end(ap);/*Clean arguments list*/
 
 	printf("\n");
 }
