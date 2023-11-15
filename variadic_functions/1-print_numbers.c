@@ -25,7 +25,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	/*Print remaining numbers with a separator*/
 	for (i = 1; i < n; i++)
+	{
 		printf("%s%d", separator, va_arg(ap, int));
+		if (separator == NULL)
+		{
+			break;
+		}
+	}
 
 	/*Clean arguments list*/
 	va_end(ap);
