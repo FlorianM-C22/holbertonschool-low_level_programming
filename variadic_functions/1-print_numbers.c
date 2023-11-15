@@ -17,9 +17,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	va_start(ap, n); /*Initialize arguments list*/
 
-	if (n == 0)
-		return; /*If no arguments, return 0*/
-
 	/*Print 1st number without separator*/
 	printf("%d", va_arg(ap, int));
 
