@@ -14,8 +14,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list ap;
 	unsigned int i; /*To iterate through the arguments*/
+	/*To check if string is NULL*/
+	const char *currentString = va_arg(ap, const char *);
 
 	va_start(ap, n);
+
+	if (currentString == NULL)
+		printf("(nil)");
 
 	/*If at least one string argument, print it without a separator*/
 	if (n > 0)
@@ -27,9 +32,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		/*Checks if a separator is needed and if not last string*/
 		if (separator != NULL && i < n)
 			printf("%s", separator);
-
-		if (i == '\0')
-			printf("(nil)");
 
 		printf("%s", va_arg(ap, const char *));
 	}
