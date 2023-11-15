@@ -26,7 +26,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	/*Print remaining numbers with a separator*/
 	for (i = 1; i < n; i++)
 	{
-		if (separator != NULL)/*Checks if separator is NULL*/
+		if (i != n && separator != NULL)/*Checks if separator is NULL*/
 		{
 			printf("%s", separator);
 		}
