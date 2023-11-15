@@ -17,17 +17,15 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	va_start(ap, n); /*Initialize arguments list*/
 
-	/*Print 1st number without separator*/
-	printf("%d", va_arg(ap, int));
-
 	/*Print remaining numbers with a separator*/
 	for (i = 1; i < n; i++)
 	{
+		printf("%d", va_arg(ap, int));/*Print the integers*/
+
 		if (i != n && separator != NULL)/*Checks if separator is NULL*/
 		{
 			printf("%s", separator);
 		}
-		printf("%d", va_arg(ap, int));/*Print the integers*/
 	}
 
 	va_end(ap);/*Clean arguments list*/
