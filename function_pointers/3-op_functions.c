@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "3-calc.h"
-
 /**
  * op_add - returns the sum of a and b
  * @a: num 1
@@ -71,12 +70,4 @@ int op_mod(int a, int b)
 		return (0);
 	}
 
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
 }
