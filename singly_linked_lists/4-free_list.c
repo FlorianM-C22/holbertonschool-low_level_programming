@@ -10,10 +10,12 @@
  */
 void free_list(list_t *head)
 {
-	if (head != NULL)
+	struct node *tmp;
+
+	while (head != NULL)
 	{
-		free(head->str);
-		free(head->len);
-		free(head->next);
+		tmp = head;
+		head = head->next;
+		free(tmp);
 	}
 }
