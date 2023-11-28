@@ -54,7 +54,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	/*Duplicating string*/
 	new_node->str = strdup(str);
 
-	/*If strdup = SUCCESS*/
+	/*If strdup = FAILURE*/
 	if (new_node->str == NULL)
 	{
 		free(new_node);/*Freeing memory for the node*/
