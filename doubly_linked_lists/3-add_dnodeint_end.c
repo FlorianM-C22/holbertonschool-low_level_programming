@@ -12,34 +12,31 @@
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *last_node, *temp;
+	dlistint_t *new_node, *current_node;
 
-	last_node = malloc(sizeof(dlistint_t));
+	new_node = malloc(sizeof(dlistint_t));
 
-	if (last_node == NULL)
-		return (NULL);
+	if (head == NULL || new_node == NULL)
+		return (0);
 
-	/*Add data to the next node*/
-	last_node->n = n;
+	/*New node is last node, so we swap next to NULL*/
+	new_node->n = n;
+	new_node->next = NULL;
 
-	/*Set pointers to the new node*/
-	last_node->next = NULL;
-
-	/*Check if list is empty*/
-	if ((*head) == NULL)
-		(*head) = last_node;
+	/*If list is empty, new node is head*/
+	if (*head == NULL)
+		*head = new_node;
 
 	else
 	{
-		temp = *head;
-
-		/*Interate through the list to find the last node*/
-		while (temp->next != NULL)
-			temp = temp->next;
-
-		/*Add the node at the end of the list*/
-		temp->next = last_node;
-		last_node->prev = temp;
+		/*Else, iterating through the list...*/
+		current_node = *head;
+		while (current_node->next != NULL)
+			current_node = current_node->next;
+		/*...to add the new node*/
+		current_node->next = new_node;
+		new_node->prev = current_node;
 	}
-	return (last_node);
+
+	return (new_node);
 }
