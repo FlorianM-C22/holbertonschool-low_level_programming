@@ -22,5 +22,8 @@ unsigned int binary_to_uint(const char *b)
 		i++;
 	}
 
+	if (b[i] != '\0') /* Check for non-binary characters */
+		return (0);
+
 	return (result);
 }
