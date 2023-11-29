@@ -18,20 +18,20 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	if (head == NULL || new_node == NULL)
 	return (0);
 
-	/* Le nouveau nœud est le dernier, donc next doit être NULL */
+	/* New node is last, so next needs to be NULL */
 	new_node->n = n;
 	new_node->next = NULL;
 
-	/* Si la liste est vide, le nouveau nœud = la tête de la liste */
+	/* If list empty, new node is head */
 	if (*head == NULL)
 		*head = new_node;
 	else
 	{
-	/* Sinon, parcourir la liste jusqu'à la fin  */
+	/* Else, iterating through the list... */
 		current_node = *head;
 		while (current_node->next != NULL)
 			current_node = current_node->next;
-		/* et ajouter le nouveau nœud */
+		/* ...and adding new node */
 		current_node->next = new_node;
 		new_node->prev = current_node;
 	}

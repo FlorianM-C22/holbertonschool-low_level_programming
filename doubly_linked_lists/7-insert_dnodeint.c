@@ -18,11 +18,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 
-	/* si premier noeud */
+	/* If 1st node, returning current node */
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
-	/* Compte le nombre de noeuds */
+	/* Counting number of nodes */
 	i = 0;
 	current = *h;
 	while (current != NULL && i < idx - 1)
@@ -31,15 +31,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		i++;
 	}
 
-	/* Si idx trop grand */
+	/* If index is too big */
 	if (current == NULL)
 	return (NULL);
 
-	/* Si dernier noeud, ajoute à la fin */
+	/* If last node, adding it at the end of the list */
 	if (current->next == NULL)
 	return (add_dnodeint_end(h, n));
 
-	/* Sinon, insère au milieu */
+	/* Else, inserting it in the middle */
 	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
 		return (NULL);
