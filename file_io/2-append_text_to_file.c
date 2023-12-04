@@ -20,7 +20,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	file = open(filename, O_WRONLY | O_APPEND | O_CREAT | O_TRUNC, 0664);
+	file = open(filename, O_WRONLY | O_APPEND, 0664);
 
 	if (file == -1)
 		return (-1);
@@ -36,7 +36,7 @@ int append_text_to_file(const char *filename, char *text_content)
 			return (-1);
 	}
 
-	wrt = write(file, filename, strlen(text_content));
+	wrt = write(file, text_content, strlen(text_content));
 
 	if (wrt == -1)
 	{
