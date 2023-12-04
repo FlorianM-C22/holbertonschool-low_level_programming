@@ -17,27 +17,35 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t n, fd, wrt;
 	char *txt;
 
+	/*Allocate memory for the text buffer*/
 	txt = malloc(letters);
 
+	/*Check if memory allocation was successful*/
 	if (txt == NULL)
 		return (0);
 
+	/*Check if filename is NULL*/
 	if (filename == NULL)
 		return (0);
 
+	/*Open the file for reading*/
 	fd = open(filename, O_RDONLY);
 
+	/*Check if the file opening was successful*/
 	if (fd == -1)
 	{
 		free(txt);
 		return (0);
 	}
 
+	/*Read up to 'letters' number of bytes from the file into the text buffer*/
 	n = read(fd, txt, letters);
 
+	/*Write the read content to the standard output (STDOUT_FILENO)*/
 	wrt = write(STDOUT_FILENO, txt, n);
 
 	close(fd);
 
+	/*Return the number of bytes written to the standard output*/
 	return (wrt);
 }
