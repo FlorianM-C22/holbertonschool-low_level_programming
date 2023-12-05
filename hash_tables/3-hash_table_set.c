@@ -11,14 +11,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_node, *temp;
-
+	/*Checking NULL hash table, NULL key or empty key*/
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	temp = ht->array[index];
-	while (temp != NULL)
+	while (temp != NULL)/*Traverse the linked list at calculated index*/
 	{
-		if (strcmp(temp->key, key) == 0)
+		if (strcmp(temp->key, key) == 0)/*If key already exists, update*/
 		{
 			free(temp->value);
 			temp->value = strdup(value);
@@ -28,10 +28,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		temp = temp->next;
 	}
-	new_node = malloc(sizeof(hash_node_t));
+	new_node = malloc(sizeof(hash_node_t)); /*If it doesn't, creates it*/
 	if (new_node == NULL)
 		return (0);
-
+	/*Duplicates the key and value and check for allocation failure*/
 	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
@@ -45,7 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_node);
 		return (0);
 	}
-	new_node->next = ht->array[index];
+	new_node->next = ht->array[index]; /*Add new node to the beginning*/
 	ht->array[index] = new_node;
 	return (1);
 }
