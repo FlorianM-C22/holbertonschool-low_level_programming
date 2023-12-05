@@ -1,10 +1,3 @@
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "main.h"
 
 #define BUFFER_SIZE 1024
@@ -18,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int source_fd, dest_fd;
-	ssize_t bytes_read, bytes_written;
+	int bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
