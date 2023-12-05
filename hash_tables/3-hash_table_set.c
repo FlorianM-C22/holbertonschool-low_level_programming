@@ -32,10 +32,23 @@ hash_node_t *create_node(const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	/*Use the key_index function to calculate the index for the key*/
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	char *dup_value;
+	unsigned long int index;
+	hash_node_t *new_node;
 
-	hash_node_t *new_node = create_node(key, value);
+	/* Validate that the key is not an empty string */
+	if (key == NULL || key[0] == '\0')
+		return (0);
+
+	dup_value = strdup(value);
+
+	if (dup_value == NULL)
+		return (0);
+
+	/*Use the key_index function to calculate the index for the key*/
+	index = key_index((const unsigned char *)key, ht->size);
+
+	new_node = create_node(key, value);
 
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
