@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 
 	if (source_fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
 	if (dest_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		close(source_fd);
 		exit(99);
 	}
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		bytes_written = write(dest_fd, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 			close(source_fd);
 			close(dest_fd);
 			exit(99);
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
 	if (bytes_read == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		close(source_fd);
 		close(dest_fd);
 		exit(98);
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
 	{
-		dprintf(2, "Error: Can't close fd\n");
+		dprintf(STDERR_FILENO, "Error: Can't close fd\n");
 		exit(100);
 	}
 
