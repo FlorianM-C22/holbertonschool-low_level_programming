@@ -10,8 +10,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to;
-	int bytes_read, bytes_written;
+	int source_fd, dest_fd, num;
+	int bytes = BUFFER_SIZE;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
@@ -20,45 +20,40 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	file_from = open(argv[1], O_RDONLY);
+	source_fd = open(argv[1], O_RDONLY);
 
-	if (file_from == -1)
+	if (source_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	dest_fd = creat(argv[2], 0664);
 
-	if (file_to == -1)
+	if (dest_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-		close(file_from);
+		close(source_fd);
 		exit(99);
 	}
 
-	while ((bytes_read = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	while (bytes == BUFFER_SIZE)
 	{
-		bytes_written = write(file_to, buffer, bytes_read);
+		bytes = read(source_fd, buffer, BUFFER_SIZE);
 
-		if (bytes_written != bytes_read)
+		if (bytes == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-			close(file_from);
-			close(file_to);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
+
+		num = write(dest_fd, buffer, bytes);
+
+		if (num < bytes)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 
-	if (bytes_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close(file_from);
-		close(file_to);
-		exit(98);
-	}
-
-	if (close(file_from) == -1 || close(file_to) == -1)
+	if (close(source_fd) == -1 || close(dest_fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd\n");
 		exit(100);
