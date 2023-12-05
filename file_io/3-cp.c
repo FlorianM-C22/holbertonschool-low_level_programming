@@ -21,23 +21,46 @@ int cp(const char *file_from, char *file_to)
 	ssize_t bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
 
-	if (file_from == NULL | file_from == NULL)
-		dprintf("Usage: cp file_from file_to\n");
+	if (file_from == NULL || file_from == NULL)
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
+	}
 
 	source_fd = open(file_from, O_RDONLY);
 
 	if (source_fd == -1)
 	{
-		dprintf("Error: Can't read from file NAME_OF_THE_FILE\n");
-		exit(97);
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 
-	if (/*Cannot create OR write to file_to fails*/)
-		dprintf("Error: Can't write to NAME_OF_THE_FILE\n");
-		exit(99);
+	dest_fd = open(file_to, O_WRONLY | O_CREAT | O_TRUNC);
 
-	if (/*Cannot close file descriptor*/)
-		dprintf("Error: Can't close fd FD_VALUE\n");
+	if (dest_fd == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", file_to);
+		close(source_fd);
+		exit(99);
+	}
+
+	while ((bytes_read = read(source_fd, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(dest_fd, buffer, bytes_read);
+		if (bytes_written == -1)
+		{
+			dprintf(2, "Error: Can't write to file %s\n", file_to);
+			close(source_fd);
+			close(dest_fd);
+			exit(99);
+		}
+	}
+
+	if (close(source_fd) == -1 || close(dest_fd) == -1)
+	{
+		dprintf(2, "Error: Can't close fd\n");
 		exit(100);
+	}
+
+	return (1);
 }
