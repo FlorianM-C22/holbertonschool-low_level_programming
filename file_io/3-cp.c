@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 	if (source_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close(source_fd);
 		exit(98);
 	}
 
@@ -48,7 +47,8 @@ int main(int argc, char *argv[])
 	while ((bytes_read = read(source_fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytes_written = write(dest_fd, buffer, bytes_read);
-		if (bytes_written == -1)
+
+		if (bytes_written != bytes_read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 			close(source_fd);
