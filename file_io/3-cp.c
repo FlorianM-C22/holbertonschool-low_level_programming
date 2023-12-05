@@ -50,8 +50,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
-	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd\n"), exit(100);
-	}
+
 	return (0);
 }
