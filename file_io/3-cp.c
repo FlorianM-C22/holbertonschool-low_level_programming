@@ -30,10 +30,12 @@ int main(int argc, char *argv[])
 	while ((bytes = read(source_fd, buffer, 1024)) > 0)
 	{
 		num = write(dest_fd, buffer, bytes);
+
 		if (num != bytes)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(source_fd);
+
 			if (close(dest_fd) == -1)
 			{
 				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest_fd);
@@ -43,9 +45,13 @@ int main(int argc, char *argv[])
 		}
 	}
 	if (bytes == -1)
+	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
+		exit(98);
+	}
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
+	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd\n"), exit(100);
+	}
 	return (0);
 }
