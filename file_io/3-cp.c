@@ -1,18 +1,16 @@
 #include "main.h"
 
-#define BUFFER_SIZE 1024
-
 /**
  * cp - copies the content of a file to another file
  * @file_from: Source file
  * @file_to: Copy
- * Return: 1 = SUCESS
+ * Return: 0 = SUCESS
  */
 int main(int argc, char *argv[])
 {
 	int source_fd, dest_fd, num;
-	int bytes = BUFFER_SIZE;
-	char buffer[BUFFER_SIZE];
+	int bytes = 1024;
+	char buffer[1024];
 
 	if (argc != 3)
 	{
@@ -37,9 +35,9 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while (bytes == BUFFER_SIZE)
+	while (bytes == 1024)
 	{
-		bytes = read(source_fd, buffer, BUFFER_SIZE);
+		bytes = read(source_fd, buffer, 1024);
 
 		if (bytes == -1)
 		{
