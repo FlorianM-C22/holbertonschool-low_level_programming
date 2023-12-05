@@ -48,8 +48,10 @@ int main(int argc, char *argv[])
 		num = write(dest_fd, buffer, bytes);
 
 		if (num < bytes)
+		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
+		}
 	}
 
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
