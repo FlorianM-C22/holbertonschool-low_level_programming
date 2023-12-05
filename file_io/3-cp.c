@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
 	if (dest_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
 		close(source_fd);
 		exit(99);
 	}
