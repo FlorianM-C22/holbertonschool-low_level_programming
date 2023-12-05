@@ -15,31 +15,31 @@
  * @file_to: Copy
  * Return: 1 = SUCESS
  */
-int cp(const char *file_from, char *file_to)
+int main(int argc, char *argv[])
 {
 	int source_fd, dest_fd;
 	ssize_t bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
 
-	if (file_from == NULL || file_from == NULL)
+	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
-	source_fd = open(file_from, O_RDONLY);
+	source_fd = open(argv[1], O_RDONLY);
 
 	if (source_fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	dest_fd = open(file_to, O_WRONLY | O_CREAT | O_TRUNC);
+	dest_fd = creat(argv[2], 0664);
 
 	if (dest_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		close(source_fd);
 		exit(99);
 	}
@@ -49,7 +49,7 @@ int cp(const char *file_from, char *file_to)
 		bytes_written = write(dest_fd, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to file %s\n", file_to);
+			dprintf(2, "Error: Can't write to file %s\n", argv[2]);
 			close(source_fd);
 			close(dest_fd);
 			exit(99);
