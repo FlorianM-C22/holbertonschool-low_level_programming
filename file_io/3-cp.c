@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while (bytes == 1024)
+	while ((bytes = read(source_fd, buffer, 1024)) > 0)
 	{
 		bytes = read(source_fd, buffer, 1024);
 
