@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * cp - copies the content of a file to another file
- * @file_from: Source file
- * @file_to: Copy
- * Return: 0 = SUCESS
+ * main - copies the content of a file to another file
+ * @argc: Argument count
+ * @argv: Argument value
+ * Return: 0 = SUCCESS
  */
 int main(int argc, char *argv[])
 {
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
 	if (dest_fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(source_fd);
 		exit(99);
 	}
@@ -48,7 +48,8 @@ int main(int argc, char *argv[])
 		num = write(dest_fd, buffer, bytes);
 
 		if (num < bytes)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
 	}
 
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
