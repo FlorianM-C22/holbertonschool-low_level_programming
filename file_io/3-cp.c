@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	dest_fd = creat(argv[2], 0664);
+	dest_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (dest_fd == -1)
 	{
@@ -54,6 +54,14 @@ int main(int argc, char *argv[])
 			close(dest_fd);
 			exit(99);
 		}
+	}
+
+	if (bytes_read == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		close(source_fd);
+		close(dest_fd);
+		exit(98);
 	}
 
 	if (close(source_fd) == -1 || close(dest_fd) == -1)
